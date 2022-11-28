@@ -1,16 +1,3 @@
-// import "./App.css";
-// import Login from "./Login";
-
-// const App = () => {
-//   return (
-//     <div className="App">
-//       <Login />
-//     </div>
-//   );
-// };
-
-// export default App;
-
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Step1 from "./Step1";
@@ -18,16 +5,16 @@ import Step2 from "./Step2";
 import Step3 from "./Step3";
 import Result from "./Result";
 import Header from "./components/Header";
-import Login from "../src/Login";
-import "./App.css";
+// import "./App.css";
+// import Login from "./Login";
 
-const App = () => {
+function App() {
   return (
     <>
       <Header />
-      <div className="App">
+      {/* <div className="App">
         <Login />
-      </div>
+      </div> */}
       <Router>
         <Switch>
           <Route exact path="/" component={Step1} />
@@ -38,6 +25,6 @@ const App = () => {
       </Router>
     </>
   );
-};
+}
 
 export default App;
