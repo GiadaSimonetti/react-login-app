@@ -21,9 +21,6 @@ const Login = () => {
 
   console.log("errors: ", errors);
 
-  const hasError = Boolean(errors);
-  console.log("hasError:", hasError);
-
   return (
     <>
       <Container>
@@ -34,44 +31,33 @@ const Login = () => {
         <LoginContainer>
           <Form
             onSubmit={handleSubmit((data) => {
-              console.log(data);
+              console.log("data: ", data);
+              console.log("dateOfBirth: ", data.dateOfBirth.length);
             })}
           >
             <ImputGroup>
               <label for="lastName">Last Name</label>
               <input
-                hasError
                 {...register("lastName", {
                   required: "This is required",
                   minLength: { value: 2, message: "Minimum lenght is 2" },
                   maxLength: { value: 50, message: "Maximum lenght is 50" },
                   pattern: { value: /^[A-Za-z]+$/i, message: "Only letters" },
-                  // pattern: /^[A-Za-z]+$/i,
                 })}
                 placeholder="Last Name"
               />
               <ErrorMessage>{errors?.lastName?.message}</ErrorMessage>
-
-              <span className="msg">Valid Name</span>
             </ImputGroup>
             <ImputGroup>
-              <label for="dbirth">Date of Birth</label>
+              <label for="dateOfBirth">Date of Birth</label>
               <input
                 type="date"
-                name="dbirth"
-                id="dbirth"
-                onChange={(e) =>
-                  console.log(
-                    "e: ",
-                    e
-                    // "target: ",
-                    // e.target,
-                    // "timeStamp: ",
-                    // e.timeStamp
-                  )
-                }
+                {...register("dateOfBirth", {
+                  required: "This is required",
+                  valueAsDate: true,
+                })}
               />
-              <span className="msg">Incorrect date of birth</span>
+              <ErrorMessage>{errors?.dateOfBirth?.message}</ErrorMessage>
             </ImputGroup>
             <ImputGroup>
               <label for="postCode">Post Code</label>
@@ -82,13 +68,12 @@ const Login = () => {
                   maxLength: { value: 7, message: "Maximum lenght is 7" },
                   pattern: {
                     value: /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/i,
-                    message: "This is not a correct Post Code",
+                    message: "Incorrect post code",
                   },
                 })}
                 placeholder="Post Code"
               />
               <ErrorMessage>{errors?.postCode?.message}</ErrorMessage>
-              <span className="msg">Incorrect post code</span>
             </ImputGroup>
             <Button type="submit">Login</Button>
           </Form>
