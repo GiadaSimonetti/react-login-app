@@ -1,13 +1,16 @@
-// import React from "react";
-// // import styled from "styled-components";
+import React from "react";
+import styled from "styled-components";
 
-// // export const HeaderContainer = styled.div`
-// //   display: flex;
-// //   flex-direction: column;
-// //   justify-content: center;
-// //   align-items: center;
-// // `;
+const Container = styled.div`
+  height: 75vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-// export const MainContainer = () => {
-//   return <div></div>;
-// };
+const MainContainer = ({ children, ...props }) => {
+  return <Container {...props}>{children}</Container>;
+};
+
+export default MainContainer;

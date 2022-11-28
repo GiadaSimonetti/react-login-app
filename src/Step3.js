@@ -2,15 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useData } from "./DataContext";
+import MainContainer from "./components/MainContainer";
 import styled from "styled-components";
-
-const Container = styled.div`
-  height: 75vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const FormContainer = styled.div`
   box-shadow: 0 0 15px 0 #a19f9f;
@@ -100,7 +93,7 @@ const Step3 = () => {
   };
 
   return (
-    <Container>
+    <MainContainer>
       <FormContainer>
         <h2 style={{ color: "#a19f9f" }}>Step 3</h2>
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -136,7 +129,7 @@ const Step3 = () => {
           <Button type="submit">Submit</Button>
         </Form>
       </FormContainer>
-    </Container>
+    </MainContainer>
   );
 };
 

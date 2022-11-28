@@ -2,16 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useData } from "./DataContext";
+import MainContainer from "./components/MainContainer";
 import styled from "styled-components";
-
-const Container = styled.div`
-  height: 75vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 const InformationContainer = styled.div`
   display: flex;
@@ -107,7 +99,7 @@ const Step2 = () => {
   const UppercasePostCode = data?.postCode.toUpperCase();
 
   return (
-    <Container>
+    <MainContainer style={{ flexDirection: "column" }}>
       <InformationContainer>
         <p>
           <BoldText>Last Name: </BoldText>
@@ -167,7 +159,7 @@ const Step2 = () => {
           <Button type="submit">Next</Button>
         </Form>
       </FormContainer>
-    </Container>
+    </MainContainer>
   );
 };
 
