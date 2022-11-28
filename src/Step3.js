@@ -1,24 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 import { useData } from "./DataContext";
 import MainContainer from "./components/MainContainer";
-import styled from "styled-components";
-
-const FormContainer = styled.div`
-  box-shadow: 0 0 15px 0 #a19f9f;
-  padding: 40px 30px;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 20px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 40px;
-`;
+import FormContainer from "./FormContainer";
+import MainButton from "./components/MainButton";
+import FormElement from "./components/FormElement";
+import ErrorMessage from "./components/ErrorMessage";
 
 const ImputGroup = styled.div`
   display: flex;
@@ -46,26 +35,9 @@ const ImputGroup = styled.div`
   }
 `;
 
-const Button = styled.button`
-  padding: 0.5em 1em;
-  font-size: 1.5rem;
-  font-weight: lighter;
-  color: black;
-  background-color: #f4f3f3;
-  border: 1px solid #a19f9f;
-  border-radius: 0.25em;
-  outline: none;
-  cursor: pointer;
-  :hover,
-  :focus {
-    background-color: #a19f9f;
-    color: #f4f3f3;
-  }
-`;
-
-const ErrorMessage = styled.p`
-  color: red;
-`;
+// const ErrorMessage = styled.p`
+//   color: red;
+// `;
 
 const Step3 = () => {
   const { setValues, data } = useData();
@@ -96,7 +68,7 @@ const Step3 = () => {
     <MainContainer>
       <FormContainer>
         <h2 style={{ color: "#a19f9f" }}>Step 3</h2>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormElement onSubmit={handleSubmit(onSubmit)}>
           <ImputGroup>
             <label htmlFor="verificationCode">
               Verify the authorization code
@@ -126,8 +98,8 @@ const Step3 = () => {
             <ErrorMessage>{errors?.verificationCode?.message}</ErrorMessage>
           </ImputGroup>
 
-          <Button type="submit">Submit</Button>
-        </Form>
+          <MainButton type="submit">Submit</MainButton>
+        </FormElement>
       </FormContainer>
     </MainContainer>
   );
