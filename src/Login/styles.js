@@ -81,3 +81,7 @@ export const Button = styled.button`
     color: #f4f3f3;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  color: red;
+`;
