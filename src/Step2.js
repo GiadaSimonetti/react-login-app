@@ -106,7 +106,6 @@ const Step2 = () => {
 
   const UppercasePostCode = data?.postCode.toUpperCase();
 
-  console.log("data: ", data);
   return (
     <Container>
       <InformationContainer>

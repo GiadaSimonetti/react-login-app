@@ -30,7 +30,7 @@ const Form = styled.form`
 const ImputGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 10px;
   > label {
     color: black;
     font-weight: lighter;
@@ -79,6 +79,7 @@ const Step3 = () => {
   const history = useHistory();
   const {
     register,
+
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -90,12 +91,14 @@ const Step3 = () => {
 
   console.log("errors: ", errors);
 
+  const verificationCode = "0000";
+  const validateImput = (value) => value === verificationCode;
+
   const onSubmit = (data) => {
     history.push("./success");
     setValues(data);
   };
 
-  console.log("Step3 data: ", data);
   return (
     <Container>
       <FormContainer>
@@ -108,11 +111,21 @@ const Step3 = () => {
             <input
               {...register("verificationCode", {
                 required: "This is required",
-                minLength: { value: 4, message: "Minimum lenght is 4" },
-                maxLength: { value: 4, message: "Maximum lenght is 4" },
+                minLength: {
+                  value: 4,
+                  message: "Verification Code must be 4 digits",
+                },
+                maxLength: {
+                  value: 4,
+                  message: "Verification Code must be 4 digits",
+                },
                 pattern: {
                   value: /^[0-9]*$/i,
                   message: "Must contains only numbers",
+                },
+                validate: {
+                  checkImput: (v) =>
+                    validateImput(v) || "Wrong verification number",
                 },
               })}
               placeholder="0000"

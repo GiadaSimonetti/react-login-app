@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import * as dayjs from "dayjs";
 import { useData } from "./DataContext";
 import styled from "styled-components";
 
@@ -89,6 +90,7 @@ const Step1 = () => {
   });
 
   console.log("errors: ", errors);
+  const formattedDate = dayjs().format("YYYY-MM-DD");
 
   const onSubmit = (data) => {
     history.push("./step2");
@@ -96,6 +98,7 @@ const Step1 = () => {
   };
 
   console.log("step1 data: ", data);
+
   return (
     <Container>
       <FormContainer>
@@ -125,8 +128,8 @@ const Step1 = () => {
                   message: "Enter a valide date of birth",
                 },
                 max: {
-                  value: "2022-11-26",
-                  message: "Enter a proper date of birth",
+                  value: formattedDate, //here the code check if the date of bith is not in the future, assuming that a parent/carer can login for a newborn
+                  message: "Enter a previous date of birth",
                 },
               })}
             />
