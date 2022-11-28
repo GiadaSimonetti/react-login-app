@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
-import Result from "./Result";
+import Success from "./Success";
 import Header from "./components/Header";
 // import "./App.css";
 // import Login from "./Login";
@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/" component={Step1} />
           <Route path="/step2" component={Step2} />
           <Route path="/step3" component={Step3} />
-          <Route path="/result" component={Result} />
+          <Route path="/success" component={Success} />
         </Switch>
       </Router>
     </>

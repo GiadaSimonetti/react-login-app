@@ -44,12 +44,8 @@ const ImputGroup = styled.div`
     border: none;
     outline: none;
     border-radius: 0.25em;
-    color: #a19f9f;
+    color: black
     font-weight: lighter;
-  }
-  .msg {
-    display: none;
-    font-size: 0.75rem;
   }
 `;
 
@@ -97,11 +93,11 @@ const Step1 = () => {
     setValues(data);
   };
 
-  console.log("data: ", data);
+  console.log("step1 data: ", data);
   return (
     <Container>
       <FormContainer>
-        <h2>Step 1</h2>
+        <h2 style={{ color: "#a19f9f" }}>Step 1</h2>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <ImputGroup>
             <label htmlFor="lastName">Last Name</label>
@@ -122,7 +118,6 @@ const Step1 = () => {
               type="date"
               {...register("dateOfBirth", {
                 required: "This is required",
-                // valueAsDate: true,
                 min: {
                   value: "1899-01-01",
                   message: "Enter a valide date of birth",
