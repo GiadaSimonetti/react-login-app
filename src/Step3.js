@@ -36,7 +36,6 @@ const ImputGroup = styled.div`
     font-weight: lighter;
     font-size: 20px;
     padding-bottom: 2px;
-
     display: block;
     text-align: center;
   }
