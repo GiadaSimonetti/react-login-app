@@ -52,14 +52,16 @@ const Form = styled.form`
 const ImputGroup = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 0px 10px 5px 10px;
+  padding: 10px;
   > label {
     color: black;
     font-weight: lighter;
     font-size: 1.25rem;
     padding-bottom: 2px;
-    display: block;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   > input[type="radio" i] {
     margin: 3px 10px 0px 5px;
@@ -87,7 +89,7 @@ const Step2 = () => {
   const { setValues, data } = useData();
   const history = useHistory();
 
-  const { register, handleSubmit, control } = useForm({
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       validation: ["A"],
     },
@@ -128,21 +130,38 @@ const Step2 = () => {
           <section>
             <BoldText>Please choose a method of validation:</BoldText>
             <ImputContainer>
-              <p>Phone Call</p>
               <ImputGroup>
-                <input {...register("validation")} type="radio" value="B" />
-                <label htmlFor="phone">Phone Call</label>
-                <label htmlFor="phone">********111</label>
+                <input
+                  {...register("validation")}
+                  type="radio"
+                  id="phone"
+                  value="phone"
+                />
+                <label htmlFor="phone">
+                  <b>Phone Call</b> (+44*****123)
+                </label>
               </ImputGroup>
-              <p>Text to Mobile</p>
               <ImputGroup>
-                <input {...register("validation")} type="radio" value="C" />
-                <label htmlFor="mobile">*******111</label>
+                <input
+                  {...register("validation")}
+                  type="radio"
+                  id="mobile"
+                  value="mobile"
+                />
+                <label htmlFor="mobile">
+                  <b>Text to Mobile</b> (+44*******789)
+                </label>
               </ImputGroup>
-              <p>Email</p>
               <ImputGroup>
-                <input {...register("validation")} type="radio" value="A" />
-                <label htmlFor="email">g***********@gmail.com</label>
+                <input
+                  {...register("validation")}
+                  type="radio"
+                  id="email"
+                  value="email"
+                />
+                <label htmlFor="email">
+                  <b>Email</b> (a***********@gmail.com)
+                </label>
               </ImputGroup>
             </ImputContainer>
           </section>

@@ -106,14 +106,16 @@ const Step3 = () => {
               Verify the authorization code
             </label>
             <input
-              // type="number"
               {...register("verificationCode", {
                 required: "This is required",
                 minLength: { value: 4, message: "Minimum lenght is 4" },
-                pattern: { value: /^[0-9]*$/i, message: "Only numbers" },
+                maxLength: { value: 4, message: "Maximum lenght is 4" },
+                pattern: {
+                  value: /^[0-9]*$/i,
+                  message: "Must contains only numbers",
+                },
               })}
-              // <input type="number" {...register("age", { min: 18, max: 99 })} />
-              placeholder="Verification Code"
+              placeholder="0000"
             />
             <ErrorMessage>{errors?.verificationCode?.message}</ErrorMessage>
           </ImputGroup>
