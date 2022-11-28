@@ -1,17 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
+  height: 75vh;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-export const LogoContainer = styled.div`
-  width: 100px;
-  padding: 20px;
 `;
 
 export const LoginContainer = styled.div`
@@ -20,15 +14,6 @@ export const LoginContainer = styled.div`
   width: 80%;
   max-width: 600px;
   border-radius: 20px;
-`;
-
-export const Title = styled.h1`
-  margin: 0;
-  color: black;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: normal;
-  padding: 40px;
 `;
 
 export const Form = styled.form`
