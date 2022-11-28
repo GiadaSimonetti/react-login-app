@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# DrDoctor Technical Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Quick Start
 
-## Available Scripts
+Clone it to your local system, then:
 
-In the project directory, you can run:
+## Install dependencies
 
-### `npm start`
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Start development server
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+npm start
 
-### `npm test`
+## "password-less" login exercise
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is login screen for a patient in a hospital setting.
+A patient logs in to an hospital portal using a "password-less" login – they provide some information we can verify about them in addition to a two-factor authentication code.
 
-### `npm run build`
+1. The login screen initially has the following:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- A hospital logo (see attached)
+- A form asking for the following information:
+  - **Patient lastname** (up to 50 characters at most)
+  - **Patient date of birth** (Date of birth must be a valid date)
+  - **Patient postcode** (made up of 5 to 7 alphanumeric characters, spaces are also allowed)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Once the patient provides that information, the following occurs:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- They are presented a list of contact details (for this exercise assume patient always gets back 1 UK mobile phone number, 1 UK landline number and 1 email address).
+- The patient picks one of those as the contact detail to use to receive a one-time code to complete the login process
 
-### `npm run eject`
+3.  When they have selected that contact detail, the screen shows a box where the user can type in the one-time code that they receive
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4.  Once they enter the one-time code successfully (you can assume the one-time code is 0000) they are presented with a new page/screen that for this test just says welcome. If the one-time code does not match, they are presented a suitable error message (to keep it simple, we will ignore things like maximum attempts – the only possible validation will be if the one-time code does not match)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## NOTE
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To verify the date of birth I am checking that the date is not in the future, because I assumed that a parent/guardian can log in for their newborn baby. Another approach would be to verify that only people older than a specific age (e.g. 18 years old) can log in.
