@@ -32,11 +32,11 @@ const Login = () => {
           <Form
             onSubmit={handleSubmit((data) => {
               console.log("data: ", data);
-              console.log("dateOfBirth: ", data.dateOfBirth.length);
+              console.log("dateOfBirth: ", data.dateOfBirth);
             })}
           >
             <ImputGroup>
-              <label for="lastName">Last Name</label>
+              <label htmlFor="lastName">Last Name</label>
               <input
                 {...register("lastName", {
                   required: "This is required",
@@ -49,18 +49,26 @@ const Login = () => {
               <ErrorMessage>{errors?.lastName?.message}</ErrorMessage>
             </ImputGroup>
             <ImputGroup>
-              <label for="dateOfBirth">Date of Birth</label>
+              <label htmlFor="dateOfBirth">Date of Birth</label>
               <input
                 type="date"
                 {...register("dateOfBirth", {
                   required: "This is required",
-                  valueAsDate: true,
+                  // valueAsDate: true,
+                  min: {
+                    value: "1899-01-01",
+                    message: "Enter a valide date of birth",
+                  },
+                  max: {
+                    value: "2022-11-26",
+                    message: "Enter a proper date of birth",
+                  },
                 })}
               />
               <ErrorMessage>{errors?.dateOfBirth?.message}</ErrorMessage>
             </ImputGroup>
             <ImputGroup>
-              <label for="postCode">Post Code</label>
+              <label htmlFor="postCode">Post Code</label>
               <input
                 {...register("postCode", {
                   required: "This is required",
