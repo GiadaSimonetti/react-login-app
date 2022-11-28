@@ -58,6 +58,8 @@ const ImputGroup = styled.div`
     font-weight: lighter;
     font-size: 1.25rem;
     padding-bottom: 2px;
+    display: block;
+    text-align: center;
   }
   > input[type="radio" i] {
     margin: 3px 10px 0px 5px;
@@ -126,20 +128,21 @@ const Step2 = () => {
           <section>
             <BoldText>Please choose a method of validation:</BoldText>
             <ImputContainer>
-              <p>Email</p>
-              <ImputGroup>
-                <input {...register("validation")} type="radio" value="A" />
-                <label for="email">g***********@gmail.com</label>
-              </ImputGroup>
               <p>Phone Call</p>
               <ImputGroup>
                 <input {...register("validation")} type="radio" value="B" />
-                <label for="phone">********111</label>
+                <label htmlFor="phone">Phone Call</label>
+                <label htmlFor="phone">********111</label>
               </ImputGroup>
               <p>Text to Mobile</p>
               <ImputGroup>
                 <input {...register("validation")} type="radio" value="C" />
-                <label for="mobile">*******111</label>
+                <label htmlFor="mobile">*******111</label>
+              </ImputGroup>
+              <p>Email</p>
+              <ImputGroup>
+                <input {...register("validation")} type="radio" value="A" />
+                <label htmlFor="email">g***********@gmail.com</label>
               </ImputGroup>
             </ImputContainer>
           </section>
