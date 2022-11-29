@@ -35,10 +35,6 @@ const ImputGroup = styled.div`
   }
 `;
 
-// const ErrorMessage = styled.p`
-//   color: red;
-// `;
-
 const Step3 = () => {
   const { setValues, data } = useData();
   const history = useHistory();
@@ -53,8 +49,6 @@ const Step3 = () => {
     },
     mode: "onBlur",
   });
-
-  console.log("errors: ", errors);
 
   const verificationCode = "0000";
   const validateImput = (value) => value === verificationCode;

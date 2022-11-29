@@ -34,10 +34,6 @@ const ImputGroup = styled.div`
   }
 `;
 
-// const ErrorMessage = styled.p`
-//   color: red;
-// `;
-
 const Step1 = () => {
   const { setValues, data } = useData();
   const history = useHistory();

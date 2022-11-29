@@ -62,7 +62,6 @@ const Step2 = () => {
     history.push("./step3");
     setValues(data);
   };
-  console.log("step2 data: ", data);
 
   const CapitalizedLastName =
     data?.lastName?.charAt(0).toUpperCase() + data?.lastName?.slice(1);
